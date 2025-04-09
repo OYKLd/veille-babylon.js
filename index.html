@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apprendre Babylon.js</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babylonjs/5.0.0/babylon.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babylonjs/5.0.0/loaders/babylonjs.loaders.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babylonjs-gui/5.0.0/babylon.gui.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="data:image/png;base64,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" alt="Babylon.js Logo">
+                <h1>Babylon.js Guide</h1>
+            </div>
+            <ul class="menu">
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#preparation">Préparation</a></li>
+                <li><a href="#structure">Structure de base</a></li>
+                <li><a href="#exemple">Exemple pratique</a></li>
+                <li><a href="#apprendre">Ressources</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Explorez le monde de la 3D web avec Babylon.js</h1>
+                <p>Créez des expériences 3D interactives directement dans votre navigateur</p>
+            </div>
+        </section>
+
+        <section id="introduction">
+            <div class="container">
+                <h2>🧠 1. Introduction à Babylon.js</h2>
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <h3>✅ Définition :</h3>
+                        <p>Babylon.js est une bibliothèque JavaScript open-source permettant de créer des scènes 3D interactives dans un navigateur web, sans avoir besoin d'installer de logiciel spécial.</p>
+                        
+                        <h3>🛠️ Utilité :</h3>
+                        <ul>
+                            <li>Créer des jeux 3D dans le navigateur</li>
+                            <li>Visualiser des objets 3D pour l'architecture, la science, etc.</li>
+                            <li>Créer des expériences immersives (WebXR – réalité virtuelle)</li>
+                            <li>Apprendre la 3D sans logiciel complexe (comme Unity ou Blender)</li>
+                        </ul>
+                    </div>
+                    <div class="intro-img">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-jCqGnBpf-XEs7dR80iZrex-s1CvNpA0YoQ&s" alt="Exemple Babylon.js">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="preparation">
+            <div class="container">
+                <h2>🧰 2. Préparation de l'environnement</h2>
+                <h3>✅ Ce qu'il faut :</h3>
+                <ul>
+                    <li>Un navigateur web (Chrome, Firefox…)</li>
+                    <li>Un éditeur de code (Visual Studio Code, par exemple)</li>
+                    <li>Ou simplement le <a href="https://playground.babylonjs.com" target="_blank">Playground Babylon.js</a> pour tester sans rien installer</li>
+                </ul>
+                
+                <div class="code-box">
+                    <h3>Structure basique des fichiers</h3>
+                    <pre><code>
+mon-projet-babylon/
+├── index.html
+├── css/
+│   └── global.css
+├── js/
+│   └── app.js
+└── img/
+    ├── ground.jpg
+    └── box.avif
+                    </code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="structure">
+            <div class="container">
+                <h2>🧱 3. Structure de base d'une scène Babylon.js</h2>
+                <p>Voici les éléments essentiels pour créer une scène :</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Élément</th>
+                                <th>Définition</th>
+                                <th>Utilité</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🎥 Caméra</td>
+                                <td>Vue à travers laquelle l'utilisateur voit la scène</td>
+                                <td>Contrôle de la perspective (rotation, zoom, déplacement)</td>
+                            </tr>
+                            <tr>
+                                <td>💡 Lumière</td>
+                                <td>Source de lumière dans la scène</td>
+                                <td>Rend les objets visibles et réalistes</td>
+                            </tr>
+                            <tr>
+                                <td>📦 Mesh</td>
+                                <td>Objet 3D visible dans la scène (cube, sphère, etc.)</td>
+                                <td>Représente les éléments de votre monde 3D</td>
+                            </tr>
+                            <tr>
+                                <td>🎨 Matériau</td>
+                                <td>Couleur ou texture d'un objet</td>
+                                <td>Personnalisation visuelle</td>
+                            </tr>
+                            <tr>
+                                <td>⚙️ Moteur</td>
+                                <td>Moteur de rendu 3D de Babylon.js</td>
+                                <td>Fait tourner la scène et met à jour l'affichage</td>
+                            </tr>
+                            <tr>
+                                <td>🌀 Scène</td>
+                                <td>Conteneur de tous les éléments</td>
+                                <td>Regroupe tous les objets, la caméra et les lumières</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="exemple">
+            <div class="container">
+                <h2>🧪 4. Exemple pratique : Scène 3D simple</h2>
+                
+                <div class="code-tabs">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="html">HTML</button>
+                        <button class="tab-btn" data-tab="css">CSS</button>
+                        <button class="tab-btn" data-tab="js">JavaScript</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="html-content">
+                        <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html" charset="utf-8" /&gt;
+    &lt;title&gt;Babylon - My First 3D Scene&lt;/title&gt;
+    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/babylonjs/5.0.0/babylon.js"&gt;&lt;/script&gt;
+    &lt;script src="js/app.js"&gt;&lt;/script&gt;
+    &lt;link href="css/global.css" rel="stylesheet"/&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;canvas id="renderCanvas"&gt;&lt;/canvas&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                    
+                    <div class="tab-content" id="css-content">
+                        <pre><code>
+html, body {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+    
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+}
+                        </code></pre>
+                    </div>
+                    
+                    <div class="tab-content" id="js-content">
+                        <pre><code>
+window.addEventListener('DOMContentLoaded', function() {
+  const canvas = document.getElementById('renderCanvas');
+  const engine = new BABYLON.Engine(canvas, true);
+
+  const createScene = function() {
+    const scene = new BABYLON.Scene(engine);
+    scene.gravity = new BABYLON.Vector3(0, -9.81, 0);
+    scene.collisionsEnabled = true;
+
+    // Caméra
+    const camera = new BABYLON.FreeCamera("MainCamera", new BABYLON.Vector3(0, 2.5, 5), scene);
+    camera.applyGravity = true;
+    camera.checkCollisions = true;
+    camera.speed = 0.5;
+    camera.angularSensibility = 1000;
+    camera.keysUp = [90];    // Z
+    camera.keysDown = [83];  // S
+    camera.keysLeft = [81];  // Q
+    camera.keysRight = [68]; // D
+    camera.attachControl(canvas);
+
+    // Lumière
+    const light = new BABYLON.PointLight("DirLight", new BABYLON.Vector3(0, 10, 0), scene);
+    light.diffuse = new BABYLON.Color3(1, 1, 1);
+    light.specular = new BABYLON.Color3(0.6, 0.6, 0.6);
+    light.intensity = 1.5;
+
+    // Sol
+    const ground = BABYLON.Mesh.CreatePlane("ground", 50, scene);
+    ground.rotation.x = Math.PI / 2;
+    ground.checkCollisions = true;
+    ground.material = new BABYLON.StandardMaterial("gMaterial", scene);
+    ground.material.diffuseTexture = new BABYLON.Texture("img/ground.jpg", scene);
+    ground.material.diffuseTexture.uScale = 30;
+    ground.material.diffuseTexture.vScale = 30;
+
+    // Texture des cubes
+    const boxMaterial = new BABYLON.StandardMaterial("bMaterial", scene);
+    boxMaterial.diffuseTexture = new BABYLON.Texture("img/box.avif", scene);
+
+    // Ajout de caisses
+    const cubeSize = 2;
+    for (let i = 0; i < 4; i++) {
+      const box = BABYLON.Mesh.CreateBox("box", cubeSize, scene);
+      const randomX = Math.floor(Math.random() * 31) - 15;
+      const randomZ = Math.floor(Math.random() * 31) - 15;
+      box.position = new BABYLON.Vector3(randomX, cubeSize / 2, randomZ);
+      box.checkCollisions = true;
+      box.material = boxMaterial;
+    }
+
+    return scene;
+  };
+
+  const scene = createScene();
+
+  engine.runRenderLoop(function() {
+    scene.render();
+  });
+
+  window.addEventListener('resize', function() {
+    engine.resize();
+  });
+});
+                        </code></pre>
+                    </div>
+                </div>
+                <div class="project-result">
+                    <h3>Résultat final</h3>
+                    <p>Téléchargez le <a href="download/projet-complet.zip">code source complet</a> de ce mini-projet.</p>
+                    <p>Ou consultez le <a href="https://oykld.github.io/exemple-babylon.js/" target="_blank">dépôt GitHub</a> pour voir le code source complet.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="apprendre">
+            <div class="container">
+                <h2>📚 5. Plateformes pour apprendre</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>Documentation officielle</h3>
+                        <p>La documentation complète de Babylon.js avec des exemples</p>
+                        <a href="https://doc.babylonjs.com/" target="_blank" class="btn">Consulter</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Playground</h3>
+                        <p>Testez votre code directement dans le navigateur</p>
+                        <a href="https://playground.babylonjs.com/" target="_blank" class="btn">Essayer</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Forum de la communauté</h3>
+                        <p>Posez vos questions et partagez vos projets</p>
+                        <a href="https://forum.babylonjs.com/" target="_blank" class="btn">Participer</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Tutoriels vidéo</h3>
+                        <p>Apprenez étape par étape avec des vidéos</p>
+                        <a href="https://www.youtube.com/c/BabylonJS" target="_blank" class="btn">Regarder</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Exemples</h3>
+                        <p>Découvrez des exemples concrets</p>
+                        <a href="https://www.babylonjs.com/demos/" target="_blank" class="btn">Explorer</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>GitHub</h3>
+                        <p>Explorez le code source et contribuez</p>
+                        <a href="https://github.com/BabylonJS/Babylon.js" target="_blank" class="btn">Contribuer</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="conclusion">
+            <div class="container">
+                <h2>🔍 Conclusion</h2>
+                <p>Babylon.js est une bibliothèque puissante et flexible pour créer des expériences 3D dans le navigateur. Avec ses fonctionnalités avancées, vous pouvez créer des jeux, des visualisations et des applications 3D interactives sans avoir besoin d'installer de logiciel supplémentaire.</p>
+                
+                <p>Pour aller plus loin, explorez la documentation officielle, participez à la communauté et expérimentez avec vos propres projets. La 3D web est un domaine passionnant qui offre de nombreuses possibilités créatives et techniques.</p>
+                
+                <div class="cta">
+                    <a href="#introduction" class="btn">Revenir au début</a>
+                    <a href="https://playground.babylonjs.com/" target="_blank" class="btn btn-primary">Essayer Babylon.js</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Babylon.js . Groupe A.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script src="js/demo.js"></script>
+    <script>
+        // Script pour gérer les tabs de code
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // Désactiver tous les tabs
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Activer le tab cliqué
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId + '-content').classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
